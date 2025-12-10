@@ -21,8 +21,13 @@ def get_guess():
 
 def count_cows_bulls(secret, guess):
     """Return number of cows and bulls."""
-    bulls = sum(1 for i in range(4) if guess[i] == secret[i])
-    cows = sum(1 for digit in guess if digit in secret) - bulls
+    bulls = 0
+    cows = 0
+    for i in range(4) :
+        if guess[i] == secret[i] :
+            bulls += 1
+        elif guess[i] in secret :
+            cows += 1
     return cows, bulls
 
 def play_game():
@@ -53,3 +58,4 @@ def main():
             break
 
 main()
+
